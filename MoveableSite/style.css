@@ -1,0 +1,25 @@
+
+.header {
+    text-align: center;
+    margin: 15px;
+}
+.moveable {
+    position: absolute;
+    display: inline-block;
+    width: 150px;
+    height: 200px;
+    border: 15px solid #E8C48F; 
+    padding: 10px;             
+    overflow: auto;             /* прокрутка */
+}
+#example1{
+    left: 220px;
+}
+
+#example2{
+    left: 430px;
+}
+
+#example3{
+    left: 640px;
+}

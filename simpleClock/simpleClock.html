@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clock</title>
+    <style>
+            body {
+                text-align: center;
+            }   
+             
+            div, span {
+                font-size: 45px;
+            }
+            .border {
+                display: block;
+            }
+    </style>
+    
+</head>
+<body>
+    <input type="button" onclick="clockStart()" value="Start">
+
+    <input type="button" onclick="clockStop()" value="Stop ">
+    <div class='border'></div>
+    
+<script>
+    'use strict';
+    let flag = 0;
+
+    let timerId;
+
+    function clockStart(){
+        if(flag===1){
+            console.log('Already running....');
+        }
+        else if(document.getElementById('hour') == null){
+            console.log('Timer start...');
+            let dots1 = document.createElement('span');
+            let dots2 = document.createElement('span');
+
+            let hour = document.createElement('div');
+            let min = document.createElement('div');
+            let sec = document.createElement('div');
+
+            document.body.appendChild(hour);
+                hour.style.display = 'inline-block';
+                hour.style.color = 'red';
+                hour.id = 'hour';
+                    document.body.appendChild(dots1);
+                        dots1.innerHTML = ':';
+                        dots1.style.display = 'inline-block';
+
+            document.body.appendChild(min);
+                min.style.display = 'inline-block';
+                min.style.color = 'green';
+                min.id = 'min';
+                    document.body.appendChild(dots2);
+                        dots2.innerHTML = ':';
+                        dots2.style.display = 'inline-block';
+
+            document.body.appendChild(sec);
+                sec.id = 'sec';
+                sec.style.display = 'inline-block';
+                sec.style.color = 'blue';
+        }
+
+                let sec = document.getElementById('sec');
+                let min = document.getElementById('min');
+                let hour = document.getElementById('hour');
+                flag = 1;
+
+                timerId = setInterval(function(){
+                    let time = new Date();
+                    if(time.getSeconds()<10)
+                        sec.innerHTML = '0' + time.getSeconds();
+                    else sec.innerHTML = time.getSeconds();
+
+                    if(time.getMinutes()<10)
+                        min.innerHTML = '0' + time.getMinutes();
+                    else min.innerHTML = time.getMinutes();
+
+                    if(time.getHours()<10)
+                        hour.innerHTML = '0' + time.getHours()
+                    else hour.innerHTML = time.getHours();
+                },1000);
+    }
+    
+    
+    function clockStop(){
+        flag = 0;
+        clearInterval(timerId);
+        console.log('Timer stoped...');
+    }
+</script>
+      
+</body>
+</html>

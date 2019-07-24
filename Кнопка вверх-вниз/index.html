@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Up-down</title>
+
+    <style>
+        body,
+        html {
+            height: 100%;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    
+        #matrix {
+            width: 400px;
+            margin: auto;
+            overflow: auto;
+            text-align: justify;
+        }
+
+        .scrollBtn{
+        }
+
+        .up{
+            position: fixed;
+            display: none;
+            margin: 20px 20px;
+            color: rgba(6, 110, 0, 0.5);
+            font-size: 58px;
+            float: left;
+            cursor: pointer;
+        }
+
+        .down{
+            position: fixed;
+            display: none;
+        }
+
+        </style>
+    <meta charset="utf-8">
+        
+</head>
+<body>
+    <div class="scrollBtn">
+        <span class="up" data-scroll='up'>▲</span>
+        <span class="up down" data-scroll='down'>▼</span>
+    </div>
+    <div id="matrix">
+        <script>
+        for (var i = 0; i < 2000; i++) document.writeln(i)
+        </script>
+    </div>
+      
+      
+    <script src='script.js'></script>
+</body>
+</html>
